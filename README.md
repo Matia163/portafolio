@@ -19,7 +19,7 @@ Soy un desarrollador web con enfoque en entender el funcionamiento de las aplica
 
 ```bash
 # 1. Clonar el proyecto
-git clone https://github.com/Matia163/Portafolio.git
+git clone https://github.com/Matia163/portafolio.git
 
 # 2. Instalar dependencias
 npm install
