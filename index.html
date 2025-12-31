@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg?v=6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portafolio de Matias Chamorro - Desarrollador Full Stack apasionado por crear soluciones web reales, funcionales y modernas." />
+  <meta name="keywords"
+    content="Desarrollador Web, Full Stack, React, Node.js, Portafolio, Matias Chamorro, JavaScript" />
+  <meta name="author" content="Matias Chamorro" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matias-chamorro.dev/" />
+  <meta property="og:title" content="Portafolio | Matías Chamorro" />
+  <meta property="og:description"
+    content="Desarrollador Full Stack apasionado por crear soluciones web reales, funcionales y modernas." />
+  <meta property="og:image" content="https://matias-chamorro.dev/og-image.png" />
+
+  <title>Portafolio | Matías Chamorro</title>
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Efecto de cursor Spotlight -->
+  <div class="spotlight" id="spotlight"></div>
+
+  <div class="layout">
+    <!-- Barra Lateral Izquierda (Fija) -->
+    <header class="sidebar">
+      <div>
+        <h1 class="h1 h1-title">Matías Chamorro</h1>
+        <h2 class="h2 h2-subtitle">Desarrollador Full Stack</h2>
+        <p class="p-bio">
+          Transformo ideas simples en soluciones web reales.
+        </p>
+
+        <nav class="nav">
+          <ul class="list-none">
+            <li><a href="#about" class="nav-link active">— SOBRE MÍ</a></li>
+            <li><a href="#projects" class="nav-link">— PROYECTOS</a></li>
+            <li><a href="#skills" class="nav-link">— HABILIDADES</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <ul class="social-list">
+        <li class="ui-popover-wrapper" style="position: relative;">
+          <a href="#" id="btn-cv-trigger" aria-label="Opciones de Curriculum" role="button" data-tooltip="CV">
+            <!-- Icono CV Custom -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              class="feather feather-cv" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <text x="50%" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="currentColor"
+                stroke="none" style="font-family: sans-serif;">CV</text>
+            </svg>
+          </a>
+          <!-- Menú desplegable CV -->
+          <div id="cv-menu" class="ui-popover-menu">
+            <a href="/CV_MatiasChamorro.pdf" target="_blank" class="menu-option">
+              <i class="fa-regular fa-eye"></i> Ver
+            </a>
+            <a href="/CV_MatiasChamorro.pdf" download="CV_MatiasChamorro.pdf" class="menu-option">
+              <i class="fa-solid fa-download"></i> Descargar
+            </a>
+          </div>
+        </li>
+
+        <li><a href="https://github.com/Matia163" target="_blank" rel="noopener noreferrer"
+            aria-label="Perfil de GitHub" data-tooltip="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="feather feather-github">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg></a></li>
+        <li><a href="https://www.linkedin.com/in/matichamorro" target="_blank" rel="noopener noreferrer"
+            aria-label="Perfil de LinkedIn" data-tooltip="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="feather feather-linkedin">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg></a></li>
+        <li class="ui-popover-wrapper" style="position: relative;">
+          <a href="#" id="btn-email-trigger" aria-label="Opciones de correo" role="button" data-tooltip="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-mail">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+          <!-- Menú desplegable Email -->
+          <div id="email-menu" class="ui-popover-menu">
+            <button id="btn-copy-action" class="menu-option">
+              <i class="fa-regular fa-copy"></i> Copiar
+            </button>
+            <a href="mailto:matiaschamorro163@gmail.com" id="btn-open-action" class="menu-option">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir
+            </a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Contenido Derecho (Desplazable) -->
+    <main class="content">
+      <section id="about" class="section-mb">
+        <p class="p-mb">
+          Soy un desarrollador web apasionado por la tecnología y por el proceso de aprender algo nuevo todos los días.
+          Me motiva entender cómo funcionan las aplicaciones de principio a fin y convertir ideas en soluciones web
+          reales, funcionales y bien pensadas. Disfruto enfrentar desafíos, analizar problemas y encontrar la mejor
+          manera de resolverlos a través del código.
+        </p>
+        <p class="p-mb">
+          Trabajo principalmente con HTML, CSS y JavaScript para construir interfaces atractivas y dinámicas,
+          y utilizo React para desarrollar aplicaciones modernas y escalables. Del lado del backend, desarrollo con
+          Node.js, lo que me permite comprender la lógica completa de una aplicación y cómo interactúan sus distintas
+          partes. Además, uso Git y GitHub como herramientas fundamentales para el control de versiones y el trabajo
+          colaborativo.
+        </p>
+        <p class="p-mb">
+          Me considero una persona curiosa, responsable y con muchas ganas de seguir creciendo como desarrollador.
+          Actualmente continúo formándome, practicando y mejorando mis habilidades, con el objetivo de aportar valor en
+          cada proyecto, aprender de otros profesionales y seguir evolucionando dentro del mundo del desarrollo web.
+        </p>
+      </section>
+
+      <section id="projects" class="section-mb">
+        <!-- Tarjeta de Proyecto 1 -->
+        <a href="#" class="card project-card-link">
+          <div class="project-thumb-container">
+            <div class="project-thumb-placeholder">Proximamente</div>
+          </div>
+          <div>
+            <h3 class="h3 project-title">Proyecto 1</h3>
+            <p class="project-desc">
+              Descripción del proyecto. Detalles sobre la solución implementada y desafíos resueltos.
+            </p>
+            <ul class="project-tags">
+              <li class="project-tag-pill">Tecnología</li>
+            </ul>
+          </div>
+        </a>
+
+        <!-- Tarjeta de Proyecto 2 -->
+        <a href="#" class="card project-card-link">
+          <div class="project-thumb-container">
+            <div class="project-thumb-placeholder">Proximamente</div>
+          </div>
+          <div>
+            <h3 class="h3 project-title">Proyecto 2</h3>
+            <p class="project-desc">
+              Descripción del proyecto. Detalles sobre la solución implementada y desafíos resueltos.
+            </p>
+            <ul class="project-tags">
+              <li class="project-tag-pill">Tecnología</li>
+            </ul>
+          </div>
+        </a>
+
+        <!-- Tarjeta de Proyecto 3 -->
+        <a href="#" class="card project-card-link">
+          <div class="project-thumb-container">
+            <div class="project-thumb-placeholder">Proximamente</div>
+          </div>
+          <div>
+            <h3 class="h3 project-title">Proyecto 3</h3>
+            <p class="project-desc">
+              Descripción del proyecto. Detalles sobre la solución implementada y desafíos resueltos.
+            </p>
+            <ul class="project-tags">
+              <li class="project-tag-pill">Tecnología</li>
+            </ul>
+          </div>
+        </a>
+      </section>
+
+
+
+
+      <section id="skills" class="section-mb">
+        <div class="skills-mb">
+          <h3 class="skills-title">
+            <i class="fa-solid fa-fire icon-fire"></i> Habilidades técnicas
+          </h3>
+
+          <div class="skills-subtitle-container">
+            <h4 class="skills-subtitle">Tecnologías</h4>
+            <div class="skills-grid">
+              <div class="skill-item"><i class="fa-brands fa-html5"></i> <span>HTML</span></div>
+              <div class="skill-item"><i class="fa-brands fa-css3-alt"></i> <span>CSS</span></div>
+              <div class="skill-item"><i class="fa-brands fa-js"></i> <span>JavaScript</span></div>
+              <div class="skill-item"><i class="fa-brands fa-react"></i> <span>React</span></div>
+              <div class="skill-item"><i class="fa-brands fa-node-js"></i> <span>Node.js</span></div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="skills-subtitle">Herramientas</h4>
+            <div class="skills-grid">
+              <div class="skill-item"><i class="fa-brands fa-git-alt"></i> <span>Git</span></div>
+              <div class="skill-item"><i class="fa-brands fa-github"></i> <span>GitHub</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="skills-title">
+            <i class="fa-solid fa-users-gear icon-users"></i> Habilidades blandas
+          </h3>
+          <div class="soft-skills-grid">
+            <div class="card skill-card">
+              <h4 class="soft-skill-title">Trabajo en equipo</h4>
+              <p class="soft-skill-desc">
+                Valoro el trabajo en equipo como una parte fundamental del desarrollo de software. Disfruto colaborar
+                con otras personas, compartir ideas y aprender de diferentes puntos de vista. Creo que el intercambio
+                de conocimientos y la comunicación clara permiten construir mejores soluciones y crecer tanto a nivel
+                personal como profesional. Me adapto bien a entornos colaborativos y siempre busco aportar de manera
+                positiva al grupo.
+              </p>
+            </div>
+            <div class="card skill-card">
+              <h4 class="soft-skill-title">Adaptabilidad</h4>
+              <p class="soft-skill-desc">
+                Me adapto con facilidad a nuevos entornos, tecnologías y formas de trabajo. Estoy abierto a aprender
+                herramientas nuevas y a enfrentar cambios como oportunidades de crecimiento. Cuando surgen desafíos o
+                imprevistos, busco ajustar mi enfoque, aprender rápidamente y encontrar soluciones que aporten valor,
+                manteniendo siempre una actitud positiva y proactiva.
+              </p>
+            </div>
+            <div class="card skill-card">
+              <h4 class="soft-skill-title">Aprendizaje continuo</h4>
+              <p class="soft-skill-desc">
+                El aprendizaje constante es una parte clave de mi desarrollo como programador. Me gusta mantenerme
+                actualizado, explorar nuevas tecnologías y mejorar mis habilidades a través de la práctica y la
+                formación continua. Veo cada proyecto como una oportunidad para aprender algo nuevo, crecer
+                profesionalmente y fortalecer mis conocimientos, tanto técnicos como personales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-styles">
+        <p>Codificado en Visual Studio Code. Construido con Vite, HTML5, CSS3 y Vanilla JS.</p>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toast-notification" class="toast-notification">¡Correo copiado!</div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

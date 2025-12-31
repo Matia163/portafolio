@@ -1,0 +1,651 @@
+:root {
+    /* Paleta de Colores - Tema Navy */
+    --dark-navy: #020c1b;
+    --navy: #0a192f;
+    --light-navy: #112240;
+    --lightest-navy: #233554;
+    --navy-shadow: rgba(2, 12, 27, 0.7);
+
+    --dark-slate: #495670;
+    --slate: #8892b0;
+    --light-slate: #a8b2d1;
+    --lightest-slate: #ccd6f6;
+
+    --white: #e6f1ff;
+    --green: #64ffda;
+    --green-tint: rgba(100, 255, 218, 0.1);
+    --pink: #f57dff;
+    --blue: #57cbff;
+
+    /* Tipografía */
+    --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+    /* Dimensiones de Diseño */
+    --nav-width: 45%;
+    --content-width: 55%;
+
+    /* Colores Nuevos (Refactor) */
+    --accent-orange: #ff4d00;
+    --card-bg-inner: #333;
+    --focus-outline-color: var(--green);
+}
+
+/* Reset de Estilos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--navy);
+    color: var(--slate);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Encabezados y Tipografía General */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: var(--lightest-slate);
+    line-height: 1.1;
+}
+
+.h1-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.h2-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.p-bio {
+    max-width: 300px;
+    margin-bottom: 4rem;
+}
+
+p {
+    margin: 0 0 15px 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+a:focus-visible {
+    outline: 2px dashed var(--focus-outline-color);
+    outline-offset: 4px;
+}
+
+a:hover {
+    color: var(--green);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-none {
+    list-style: none;
+}
+
+.social-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.social-list li {
+    position: relative;
+    /* Ensure tooltips and popovers position correctly relative to the item */
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    background: rgba(2, 12, 27, 0.9);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    pointer-events: none;
+    z-index: 1000;
+    margin-bottom: 8px;
+    border: 1px solid var(--light-navy);
+}
+
+/* Tooltip Arrow */
+[data-tooltip]::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -7px);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(2, 12, 27, 0.9) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    margin-bottom: 3px;
+    pointer-events: none;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* Diseño de Contenedores */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    padding: 3rem 1.5rem;
+}
+
+.content {
+    padding: 0 1.5rem 3rem 1.5rem;
+}
+
+/* Navegación */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: var(--slate);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-link.active {
+    color: var(--lightest-slate);
+}
+
+.nav-link.active::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: var(--lightest-slate);
+    margin-right: 15px;
+    transition: width 0.3s;
+}
+
+.nav-link:not(.active)::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 1px;
+    background-color: var(--slate);
+    margin-right: 0px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover::before {
+    width: 30px;
+    margin-right: 15px;
+    background-color: var(--lightest-slate);
+}
+
+/* Redes Sociales */
+.socials a {
+    color: var(--slate);
+}
+
+.socials a:hover {
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Tarjetas y Componentes */
+.card {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.card:hover h3 {
+    color: var(--green);
+}
+
+/* Efecto de grupo para atenuar tarjetas no seleccionadas */
+#projects:hover .card,
+#skills:hover .skill-card {
+    opacity: 0.5;
+}
+
+#projects .card:hover,
+#skills .skill-card:hover {
+    opacity: 1;
+}
+
+/* Etiquetas (Tags) */
+.tag {
+    font-size: 0.75rem;
+    color: var(--green);
+    background: rgba(100, 255, 218, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Habilidades (Stack Tecnológico) */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 3rem;
+    margin-top: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--lightest-slate);
+    font-size: 0.95rem;
+    font-family: var(--font-mono);
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    /* Naranja/Rojo de referencia */
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Clases de Componentes Extraídos */
+.section-mb {
+    margin-bottom: 6rem;
+}
+
+.p-mb {
+    /* Limita la línea a ~70 caracteres para evitar fatiga visual */
+    max-width: 70ch;
+    /* Espaciado generoso entre párrafos */
+    margin-bottom: 1.8rem;
+    /* Alineación estándar para mejor legibilidad */
+    text-align: left;
+    /* Interlineado amplio (aire entre líneas) */
+    line-height: 1.75;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 1.1rem;
+    /* Evita que queden palabras sueltas al final de los párrafos */
+    text-wrap: pretty;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.project-card-link {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    align-items: start;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.project-card-link:hover {
+    color: var(--slate);
+}
+
+.project-thumb-container {
+    width: 120px;
+    height: 75px;
+    background: var(--card-bg-inner);
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 2px solid var(--lightest-navy);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-thumb-placeholder {
+    font-size: 0.7rem;
+    color: var(--slate);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-title {
+    color: var(--white);
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.project-tag-pill {
+    font-size: 0.75rem;
+    color: var(--green);
+    background: rgba(100, 255, 218, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+}
+
+.skills-mb {
+    margin-bottom: 4rem;
+}
+
+.skills-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.skills-subtitle-container {
+    margin-bottom: 2.5rem;
+}
+
+.skills-subtitle {
+    font-size: 1rem;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.soft-skill-title {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.soft-skill-desc {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.footer-styles {
+    font-size: 0.85rem;
+    color: var(--light-slate);
+    padding-bottom: 2rem;
+}
+
+.icon-fire {
+    color: var(--accent-orange);
+}
+
+.icon-users {
+    color: var(--accent-orange);
+}
+
+/* Efecto Spotlight (Foco de luz dinámico) */
+.spotlight {
+    position: fixed;
+    z-index: 9999;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.07), transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    mix-blend-mode: screen;
+}
+
+body:hover .spotlight {
+    opacity: 1;
+}
+
+/* Adaptabilidad (Media Queries) */
+@media (min-width: 1024px) {
+    .layout {
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 4rem;
+    }
+
+    .sidebar {
+        width: var(--nav-width);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 5rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .content {
+        width: var(--content-width);
+        padding: 5rem 0 5rem 4rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding-bottom: 2rem;
+    }
+
+    .content {
+        width: 100%;
+        padding-top: 0;
+    }
+}
+
+/* Menús Desplegables Genéricos (Popover) */
+.ui-popover-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, -10px) scale(0.95);
+    background: rgba(17, 34, 64, 0.95);
+    border: 1px solid var(--lightest-navy);
+    padding: 0.35rem;
+    /* Menú más compacto */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    /* Menor espacio entre opciones */
+    min-width: 125px;
+    /* Menú un poco más angosto */
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    pointer-events: none;
+    margin-bottom: 15px;
+    /* Separación del botón */
+}
+
+.ui-popover-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -5px) scale(1);
+    pointer-events: auto;
+}
+
+/* Triángulo indicador (flechita abajo del menú) */
+.ui-popover-menu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    /* Apunta hacia ABAJO */
+    border-color: rgba(17, 34, 64, 0.95) transparent transparent transparent;
+}
+
+.menu-option {
+    background: transparent;
+    border: none;
+    color: var(--light-slate);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    /* Letra un poco más chica */
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    /* Padding reducido */
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    text-align: center;
+    /* Centered text */
+    justify-content: center;
+    /* Centered flex content */
+    transition: all 0.2s;
+    border-radius: 4px;
+    text-decoration: none;
+    /* remove for anchor tags */
+}
+
+.menu-option:hover {
+    color: var(--green);
+    background: rgba(100, 255, 218, 0.1);
+}
+
+.menu-option i {
+    width: 16px;
+    text-align: center;
+}
+
+/* Notificación Toast */
+.toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(100, 255, 218, 0.9);
+    color: var(--navy);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 10000;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
